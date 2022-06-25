@@ -17,7 +17,7 @@ const Filter = () => {
             placeholder='Search name'
             value={filterValue}
             onChange={handleFilterChange}
-    />
+        />
     </Label>
 }
 

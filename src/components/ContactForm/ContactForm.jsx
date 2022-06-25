@@ -13,25 +13,6 @@ const ContactForm = () => {
   const { data: contacts } = useGetContactsQuery();
   const [addContact] = useAddContactMutation();
     
-  // const handleChange = event => {
-  //   console.log(event.currentTarget);
-  //   const { name, value } = event.currentTarget;
-    
-  //   switch (name) {
-  //     case 'name':
-  //       setForm(prevForm => ({ ...prevForm, [name]: value }));
-  //       break;
-      
-  //     case 'phone': {
-  //       setForm(prevForm => ({ ...prevForm, [name]: value }));
-  //       break;
-  //     }
-      
-  //     default:
-  //       return;
-  //   }
-  // };
-
   const handleNameChange = event => {
     const { name, value } = event.currentTarget;
     setForm(prevForm => ({ ...prevForm, [name]: value }));

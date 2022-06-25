@@ -11,6 +11,7 @@ export const contactsApi = createApi({
       query: () => '/contacts',
       providesTags: ['Contact'],
     }),
+
     addContact: buider.mutation({
       query: data => ({
         url: '/contacts',
@@ -19,6 +20,7 @@ export const contactsApi = createApi({
       }),
       invalidatesTags: ['Contact'],
     }),
+    
     deleteContact: buider.mutation({
       query: id => ({
         url: `/contacts/${id}`,
