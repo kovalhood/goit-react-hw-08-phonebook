@@ -49,6 +49,14 @@
     }
 }
 
+@media screen and (max-width: 280px) {
+
+    .name,
+    .phone {
+        width: 140px;
+    }
+}
+
 .name{
     margin-bottom: 3px;
     font-weight: bold;
