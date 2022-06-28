@@ -12,15 +12,18 @@ const ContactForm = () => {
 
   const { data: contacts } = useGetContactsQuery();
   const [addContact] = useAddContactMutation();
-    
+  
+  // Creating handlers for our name and number fields
   const handleNameChange = event => {
     const { name, value } = event.currentTarget;
     setForm(prevForm => ({ ...prevForm, [name]: value }));
   }
+
   const handlePhoneChange = phoneValue => {
     setForm(prevForm => ({ ...prevForm, phone: phoneValue }));
   }
 
+  // Creating submit handler
   const handleSubmit = event => {
     event.preventDefault();
 
@@ -41,6 +44,7 @@ const ContactForm = () => {
       return toast.info(`${form.name} is already in contacts`);
     }
 
+    // After success happens this
     toast.success(`${form.name} is added to your contacts`);
     addContact(form);
     resetForm();
