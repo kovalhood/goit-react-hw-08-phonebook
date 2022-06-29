@@ -16,7 +16,7 @@ const ContactList = () => {
   const [deleteContact] = useDeleteContactMutation();
   const filterValue = useSelector(getFilter);
 
-const getContactsList = () => {
+  const getContactsList = () => {
     if (filterValue === '') {
       return contacts;
     }
