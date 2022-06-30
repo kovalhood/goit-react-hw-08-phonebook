@@ -1,0 +1,36 @@
+.home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.title{
+    margin-bottom: 10px;
+}
+
+.text{
+    font-size: 20px;
+    color: grey;
+    margin-bottom: 20px;
+}
+
+.navigation_buttons{
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.navigation_buttons button{
+    width: 140px;
+}
+
+.link{
+    text-decoration: none;
+}
+
+.link:hover,
+.link:focus{
+    text-decoration: none;
+}

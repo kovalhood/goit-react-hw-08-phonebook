@@ -63,7 +63,7 @@ const ContactForm = () => {
       <InputNumber phone={form.phone} onNumberChange={handlePhoneChange} />
     </Label>
     
-    <Button type={'submit'} symbol={'+'} title={'Add contact'} />
+    <Button type={'submit'} title={'Add contact'} />
   </form>
 };
 
