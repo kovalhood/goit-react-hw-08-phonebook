@@ -1,13 +1,9 @@
-import { useEffect, lazy, Suspense } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-
 import Wrapper from "components/Wrapper";
-import Section from "components/Section";
-import ContactForm from 'components/ContactForm';
-import Filter from 'components/Filter';
-import ContactList from 'components/ContactList';
-import { ToastContainer } from 'react-toastify';
 import AppBar from 'components/AppBar';
+import BarLoader from "react-spinners/BarLoader";
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const HomePage = lazy(() => import('pages/HomePage'));
@@ -16,40 +12,63 @@ const LoginPage = lazy(() => import('pages/LoginPage'));
 const ContactsPage = lazy(() => import('./pages/ContactsPage'));
 
 function App() {
-    return (
-        <>
-          <AppBar />
-          <Suspense fallback={<p>Loading...</p>}>
-            <Routes>
-              <Route
-                path="/"
-                element={
-                    <HomePage />
-                }
-              />
-              <Route
-                path="/register"
-                element={
-                    <RegisterPage />
-                }
-              />
-              <Route
-                path="/login"
-                element={
-                    <LoginPage />
-                }
-              />
-              <Route
-                path="/contacts"
-                element={
-                    <ContactsPage />
-                }
-              />
-              <Route path="*" element={<Navigate to="/" />} />
-            </Routes>
-          </Suspense>
-        </>
-    )
+  let [color, setColor] = useState("#6495ed");
+  
+  return (
+    <>
+      <AppBar />
+      
+      <Routes>
+        <Route
+          index
+          element={
+            <Wrapper>
+              <Suspense fallback={<BarLoader color={color} />}>
+                <HomePage />
+              </Suspense>
+            </Wrapper>
+          }
+        />
+        
+        <Route
+          path="/register"
+          element={
+            <Wrapper>
+              <Suspense fallback={<BarLoader color={color} />}>
+                <RegisterPage />
+              </Suspense>
+            </Wrapper>
+          }
+        />
+        
+        <Route
+          path="/login"
+          element={
+            <Wrapper>
+              <Suspense fallback={<BarLoader color={color} />}>
+                <LoginPage />
+              </Suspense>
+            </Wrapper> 
+          }
+        />
+
+        <Route
+          path="/contacts"
+          element={
+            <Wrapper>
+              <Suspense fallback={<BarLoader color={color} />}>
+                <ContactsPage />
+              </Suspense>
+            </Wrapper>
+          }
+        />
+
+        <Route path='*'element={<HomePage/>}/>
+      </Routes>
+
+      <ToastContainer autoClose={3000} theme="colored" />
+    </>
+  )
 }
 
 export default App;
