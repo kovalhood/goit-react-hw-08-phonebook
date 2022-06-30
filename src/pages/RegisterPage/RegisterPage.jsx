@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-// import { authOperations } from 'redux/auth';
+import { authOperations } from 'redux/auth';
 import Section from 'components/Section';
 import Container from 'components/Container';
 import Card from 'components/Card';
@@ -17,19 +17,18 @@ export default function RegisterPage() {
     setForm(prevForm => ({ ...prevForm, [name]: value }));
   };
 
-  // const handleSubmit = event => {
-  //   event.preventDefault();
-  //   dispatch(authOperations.register({ ...form }));
-  //   setForm({ name: '', email: '', password: '' });
-  // };
+  const handleSubmit = event => {
+    event.preventDefault();
+    dispatch(authOperations.register({ ...form }));
+    setForm({ name: '', email: '', password: '' });
+  };
 
   const { name, email, password } = form;
   return (
     <Section>
       <Container>
         <Card title={'Registration'}>
-          {/* <form onSubmit={handleSubmit}> */}
-          <form className={s.form}>
+          <form className={s.form} onSubmit={handleSubmit}>
             <Label labelTitle={'Name'}>
               <input
                 className={s.input}
