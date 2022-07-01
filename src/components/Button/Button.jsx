@@ -3,7 +3,7 @@ import s from './Button.module.css';
 
 const Button = ({type, title }) => {
   return <button type={type} className={s.button}>
-    <span className={s.title}> {title} </span>
+    {title}
   </button>
 }
 
