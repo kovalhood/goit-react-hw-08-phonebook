@@ -48,7 +48,7 @@ const ContactList = () => {
           </a>
           <button type='button'
             onClick={() => {
-              toast.success(`${name} is removed from your contacts`);
+              toast.info(`${name} is removed from your contacts`);
               deleteContact(id)
             }}
             className={s.delete}>
