@@ -8,7 +8,6 @@ export default function UserMenu() {
     const name = useSelector(authSelectors.getUserName);
 
     return <div className={s.user_menu}>
-        <Navigation link={'/contacts'} title={'Contacts'} />
         <span className={s.user_name}> Welcome, {name} </span>
         <button type='button' className={s.button} onClick={() => dispatch(authOperations.logOut())}>
             Log Out
