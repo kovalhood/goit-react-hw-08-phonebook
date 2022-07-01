@@ -35,15 +35,15 @@ const ContactList = () => {
     )}
     
     {isSuccess &&
-      items.map(({ id, name, phone }) => (
+      items.map(({ id, name, number }) => (
         <li key={id} className={s.item}>
-          <a href={`tel:${phone}`} className={s.contact}>
+          <a href={`tel:${number}`} className={s.contact}>
             <p className={s.name}>{name}</p>
             <p className={s.phone}>
               <svg className={s.phone_icon} aria-label="logo">
                 <use href={`${sprite}#phone`}></use>
               </svg>
-              <span className={s.phone_number}>{phone}</span>
+              <span className={s.phone_number}>{number}</span>
             </p>
           </a>
           <button type='button'

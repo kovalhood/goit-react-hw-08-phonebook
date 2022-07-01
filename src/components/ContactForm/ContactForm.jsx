@@ -4,14 +4,15 @@ import Label from './Label';
 import InputName from './InputName';
 import InputNumber from './InputNumber';
 import Button from 'components/Button';
+import { nanoid } from 'nanoid';
 import { toast } from 'react-toastify';
 import s from './ContactForm.module.css';
 
 const ContactForm = () => {
-  const [form, setForm] = useState({ name: '', phone: '' });
+  const [form, setForm] = useState({ name: '', number: '' });
 
   const { data: contacts } = useGetContactsQuery();
-  const [addContact] = useAddContactMutation();
+  const [addContact, { isSuccess, isLoading }] = useAddContactMutation();
   
   // Creating handlers for our name and number fields
   const handleNameChange = event => {
@@ -20,7 +21,7 @@ const ContactForm = () => {
   }
 
   const handlePhoneChange = phoneValue => {
-    setForm(prevForm => ({ ...prevForm, phone: phoneValue }));
+    setForm(prevForm => ({ ...prevForm, number: phoneValue }));
   }
 
   // Creating submit handler
@@ -28,14 +29,14 @@ const ContactForm = () => {
     event.preventDefault();
 
     // Rules for fields
-    if (form.name === '' && form.phone === '') {
+    if (form.name === '' && form.number === '') {
       return toast.warn("Enter data of contact");
     }
     if (form.name === '') {
       return toast.warn("Enter the name of contact");
     }
 
-    if (form.phone === '') {
+    if (form.number === '') {
       return toast.warn("Enter the phone number of contact");
     }
 
@@ -45,13 +46,13 @@ const ContactForm = () => {
     }
 
     // After success happens this
-    toast.success(`${form.name} is added to your contacts`);
     addContact(form);
+    toast.success(`${form.name} is added to your contacts`);
     resetForm();
   };
 
   const resetForm = () => {
-      setForm({ name: '', phone: '' });
+      setForm({ name: '', number: '' });
   };
 
   return <form onSubmit={handleSubmit} className={s.form}>
@@ -60,7 +61,7 @@ const ContactForm = () => {
     </Label>
     
     <Label labelTitle={'Number'}>
-      <InputNumber phone={form.phone} onNumberChange={handlePhoneChange} />
+      <InputNumber phone={form.number} onNumberChange={handlePhoneChange} />
     </Label>
     
     <Button type={'submit'} title={'Add contact'} />
