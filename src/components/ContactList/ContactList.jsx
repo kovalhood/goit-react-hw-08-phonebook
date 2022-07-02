@@ -40,7 +40,7 @@ const ContactList = () => {
           <a href={`tel:${number}`} className={s.contact}>
             <p className={s.name}>{name}</p>
             <p className={s.phone}>
-              <svg className={s.phone_icon} aria-label="logo">
+              <svg className={s.phone_icon} aria-label="phone">
                 <use href={`${sprite}#phone`}></use>
               </svg>
               <span className={s.phone_number}>{number}</span>

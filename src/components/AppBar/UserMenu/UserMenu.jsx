@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { authSelectors, authOperations } from 'redux/auth';
-import Navigation from '../Navigation';
+import sprite from '../../../images/icons.svg';
 import s from './UserMenu.module.css';
 
 export default function UserMenu() {
@@ -8,7 +8,10 @@ export default function UserMenu() {
     const name = useSelector(authSelectors.getUserName);
 
     return <div className={s.user_menu}>
-        <span className={s.user_name}> Welcome, {name} </span>
+        <svg className={s.icon} aria-label="user">
+            <use href={`${sprite}#user1`}></use>
+        </svg>
+        <span className={s.user_name}> {name} </span>
         <button type='button' className={s.button} onClick={() => dispatch(authOperations.logOut())}>
             Log Out
         </button>

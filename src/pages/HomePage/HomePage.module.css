@@ -7,13 +7,20 @@
 }
 
 .title{
-    margin-bottom: 5px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 300px) {
+    .title {
+        font-size: 34px;
+    }
 }
 
 .text{
+    margin-bottom: 30px;
     font-size: 20px;
     color: grey;
-    margin-bottom: 20px;
 }
 
 .navigation_buttons{
@@ -22,8 +29,20 @@
     width: 300px;
 }
 
+@media screen and (max-width: 300px) {
+    .navigation_buttons {
+        width: 260px;
+    }
+}
+
 .navigation_buttons button{
     width: 140px;
+}
+
+@media screen and (max-width: 300px) {
+    .navigation_buttons button {
+        width: 120px;
+    }
 }
 
 .link{
