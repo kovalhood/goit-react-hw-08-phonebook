@@ -31,10 +31,34 @@
     font-family: 'Varela Round';
     font-size: 14px;
     line-height: normal;
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 }
 
 .user_name{
     margin-right: 10px;
+    text-align: right;
+}
+
+@media screen and (max-width: 330px) {
+    .user_name {
+        width: 180px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .user_name {
+        width: 160px;
+    }
+}
+
+@media screen and (max-width: 280px) {
+    .user_name {
+        width: 140px;
+    }
 }
 
 .user_mail{
@@ -69,7 +93,7 @@
     padding: 15px;
     top: 56px;
     right: 0;
-    width: 200px;
+    width: 230px;
     text-align: center;
     border-radius: 0 0 5px 5px;
     background-color: white;

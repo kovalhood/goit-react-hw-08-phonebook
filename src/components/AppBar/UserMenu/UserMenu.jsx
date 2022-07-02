@@ -36,7 +36,7 @@ export default function UserMenu() {
         
         {dropdown &&
             <div className={s.dropdown}>
-                <span className={s.user_mail}> {email} </span>
+                <span className={s.user_mail} title={email}> {email} </span>
 
                 <button type='button' className={s.button} onClick={() => dispatch(authOperations.logOut())}>
                     Log out
