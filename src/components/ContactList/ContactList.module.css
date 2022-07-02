@@ -19,6 +19,11 @@
     outline: none;
 }
 
+.contact:hover,
+.contact:focus{
+    text-decoration: none;
+}
+
 .name,
 .phone{
     line-height: normal;
