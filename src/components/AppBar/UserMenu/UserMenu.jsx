@@ -18,7 +18,18 @@ export default function UserMenu() {
     return <div className={s.user_menu}>
         <div className={s.user_info} onClick={handleDropdown}>
             <span className={s.user_name}> {name} </span>
-            <svg className={s.icon} aria-label="user">
+
+            {dropdown ?
+            <svg className={s.icon_up} aria-label="user">
+                <use href={`${sprite}#up`}></use>
+                </svg>
+                :
+                <svg className={s.icon_down} aria-label="user">
+                <use href={`${sprite}#down`}></use>
+            </svg>
+        }
+            
+            <svg className={s.icon_user} aria-label="user">
                 <use href={`${sprite}#user`}></use>
             </svg>
         </div>
