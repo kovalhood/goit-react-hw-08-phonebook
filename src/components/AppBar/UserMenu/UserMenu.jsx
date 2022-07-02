@@ -20,14 +20,14 @@ export default function UserMenu() {
             <span className={s.user_name}> {name} </span>
 
             {dropdown ?
-            <svg className={s.icon_up} aria-label="user">
-                <use href={`${sprite}#up`}></use>
+                <svg className={s.icon_up} aria-label="user">
+                    <use href={`${sprite}#up`}></use>
                 </svg>
                 :
                 <svg className={s.icon_down} aria-label="user">
-                <use href={`${sprite}#down`}></use>
-            </svg>
-        }
+                    <use href={`${sprite}#down`}></use>
+                </svg>
+            }
             
             <svg className={s.icon_user} aria-label="user">
                 <use href={`${sprite}#user`}></use>
@@ -35,14 +35,12 @@ export default function UserMenu() {
         </div>
         
         {dropdown &&
-            <div className={s.test}>
-                <div className={s.dropdown}>
-                    <span className={s.user_mail}> {email} </span>
+            <div className={s.dropdown}>
+                <span className={s.user_mail}> {email} </span>
 
-                    <button type='button' className={s.button} onClick={() => dispatch(authOperations.logOut())}>
-                        Log Out
-                    </button>
-                </div>
+                <button type='button' className={s.button} onClick={() => dispatch(authOperations.logOut())}>
+                    Log out
+                </button>
             </div>
         }
     </div>
